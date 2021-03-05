@@ -1,0 +1,40 @@
+body {
+	line-height: 1.5rem;
+    font-size: 12px;
+    font-family: Calibri;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: blue;
+}
+
+.form-control {
+    font-size: inherit;
+    border-radius: 0;
+}
+.btn {
+    padding: 3px 6px;
+    font-size: inherit;
+    border-radius: 0;
+}
+
+.alert {
+    position: relative;
+    padding: 6px 12px;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0;
+}
+
+.alert-dismissible .btn-close {
+    padding: 12px;
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: bold;
+}
