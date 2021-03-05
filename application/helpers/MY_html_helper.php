@@ -19,6 +19,23 @@ function alerts()
     }
 }
 
+function status_label($status)
+{
+    $ci = &get_instance();
+    $close = '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+    if ($status == 'open') {
+        return '<span class="badge bg-success">Open</span>';
+    } elseif ($status == 'working') {
+        return '<span class="badge bg-primary">Working</span>';
+    } elseif ($status == 'closed') {
+        return '<span class="badge bg-secondary">Closed</span>';
+    } elseif ($status == 'canceled') {
+        return '<span class="badge bg-danger">Canceled</span>';
+    } else {
+        return '<span class="badge bg-dark">' . ucwords($status) . '</span>';
+    }
+}
+
 function set_title($title)
 {
     $ci = &get_instance();

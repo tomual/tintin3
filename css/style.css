@@ -12,7 +12,7 @@ a {
     color: blue;
 }
 
-.form-control {
+.form-control, .form-select {
     font-size: inherit;
     border-radius: 0;
 }
@@ -37,4 +37,8 @@ a {
 h1 {
     font-size: 18px;
     font-weight: bold;
+}
+
+.badge {
+    font-size: inherit;
 }

@@ -16,15 +16,15 @@
                 <?php if ($this->user) : ?>
                     <p>Hello, <?php echo $this->user->username ?> <a href="<?php echo base_url('user/logout') ?>">Log Out</a></p>
                     <ul>
-                        <li><a href="<?php echo base_url('thing') ?>">Home</a></li>
-                        <li><a href="<?php echo base_url('thing') ?>">New Ticket</a></li>
-                        <li><a href="<?php echo base_url('thing') ?>">Tickets</a></li>
-                        <li><a href="<?php echo base_url('thing') ?>">Tags</a></li>
-                        <li><a href="<?php echo base_url('thing') ?>">Settings</a></li>
+                        <li><a href="<?php echo base_url() ?>">Home</a></li>
+                        <li><a href="<?php echo base_url('ticket/create') ?>">New Ticket</a></li>
+                        <li><a href="<?php echo base_url('ticket/list') ?>">Tickets</a></li>
+                        <li><a href="<?php echo base_url('tags') ?>">Tags</a></li>
                     </ul>
                 <?php else : ?>
                         <p><a href="<?php echo base_url('user/login') ?>">Log In</a></p>
                 <?php endif ?>
+                <hr>
             </div>
         </div>
     </div>
