@@ -7,6 +7,7 @@ class Ticket extends Authenticated_Controller
     {
         parent::__construct();
         $this->load->model('ticket_model');
+        $this->load->model('project_model');
         $this->load->library('form_validation');
     }
 
@@ -16,11 +17,13 @@ class Ticket extends Authenticated_Controller
             $this->form_validation->set_rules('title', 'Title', 'trim|required');
             $this->form_validation->set_rules('description', 'Description', 'trim|required');
             $this->form_validation->set_rules('status', 'Status', 'trim|required|callback_status_check');
+            $this->form_validation->set_rules('project_id', 'Project', 'trim|callback_project_check');
 
             if ($this->form_validation->run() !== false) {
                 $data = array(
                     'title' => $this->input->post('title'),
                     'user_id' => $this->user->id,
+                    'project_id' => $this->input->post('project_id'),
                     'description' => $this->input->post('description'),
                     'status' => $this->input->post('status'),
                     'created' => date('Y-m-d H:i:s'),
@@ -36,14 +39,25 @@ class Ticket extends Authenticated_Controller
                 $this->session->set_flashdata('error', 'Please fill in fields with valid values.');
             }
         }
+        $projects = $this->project_model->get_by_user($this->user->id);
         set_title('New Ticket');
-        $this->load->view('ticket/create');
+        $this->load->view('ticket/create', compact('projects'));
     }
 
     public function status_check($status)
     {
         if (!$this->ticket_model->is_status($status)) {
             $this->form_validation->set_message('status_check', 'Invalid status');
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function project_check($project_id)
+    {
+        if (!empty($project_id) && !$this->project_model->get($project_id, $this->user->id)) {
+            $this->form_validation->set_message('project_check', 'Invalid project');
             return false;
         } else {
             return true;
@@ -78,11 +92,13 @@ class Ticket extends Authenticated_Controller
             $this->form_validation->set_rules('title', 'Title', 'trim|required');
             $this->form_validation->set_rules('description', 'Description', 'trim|required');
             $this->form_validation->set_rules('status', 'Status', 'trim|required|callback_status_check');
+            $this->form_validation->set_rules('project_id', 'Project', 'trim|callback_project_check');
 
             if ($this->form_validation->run() !== false) {
                 $data = array(
                     'title' => $this->input->post('title'),
                     'user_id' => $this->user->id,
+                    'project_id' => $this->input->post('project_id'),
                     'description' => $this->input->post('description'),
                     'status' => $this->input->post('status'),
                     'modified' => date('Y-m-d H:i:s'),
@@ -98,8 +114,9 @@ class Ticket extends Authenticated_Controller
                 $this->session->set_flashdata('error', 'Please fill in fields with valid values.');
             }
         }
+        $projects = $this->project_model->get_by_user($this->user->id);
         set_title('Edit Ticket');
-        $this->load->view('ticket/edit', compact('ticket'));
+        $this->load->view('ticket/edit', compact('ticket', 'projects'));
     }
 
     public function remove($id)

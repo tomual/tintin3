@@ -19,7 +19,7 @@
                         <li><a href="<?php echo base_url() ?>">Home</a></li>
                         <li><a href="<?php echo base_url('ticket/create') ?>">New Ticket</a></li>
                         <li><a href="<?php echo base_url('ticket/list') ?>">Tickets</a></li>
-                        <li><a href="<?php echo base_url('tags') ?>">Tags</a></li>
+                        <li><a href="<?php echo base_url('project/list') ?>">Projects</a></li>
                     </ul>
                 <?php else : ?>
                         <p><a href="<?php echo base_url('user/login') ?>">Log In</a></p>

@@ -14,6 +14,10 @@
                     <div><?php echo status_label($ticket->status) ?></div>
                 </div>
                 <div class="mb-1">
+                    <label for="project_label" class="fw-bold">Project</label>
+                    <div><?php echo $ticket->project_label ?? "-" ?></div>
+                </div>
+                <div class="mb-1">
                     <label for="description" class="fw-bold">Description</label>
                     <div><?php echo $ticket->description ?></div>
                 </div>

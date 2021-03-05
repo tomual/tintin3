@@ -26,6 +26,16 @@
                     <?php echo form_error('status') ?>
                 </div>
                 <div class="mb-1">
+                    <label for="project_id">Project</label>
+                    <select class="form-select <?php echo is_valid('project_id') ?>" name="project_id" id="project_id">
+                        <option value="">None</option>
+                        <?php foreach ($projects as $project) : ?>
+                            <option value="<?php echo $project->id ?>" <?php echo set_select('project_id', $project->id) ?>><?php echo $project->label ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    <?php echo form_error('project_id') ?>
+                </div>
+                <div class="mb-1">
                     <input type="submit" value="Create" class="btn btn-primary">
                 </div>
             </form>

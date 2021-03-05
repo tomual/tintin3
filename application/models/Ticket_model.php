@@ -17,20 +17,24 @@ class Ticket_model extends CI_Model
 
     public function get($id, $user_id)
     {
-        $this->db->where('id', $id);
-        $this->db->where('user_id', $user_id);
-        $this->db->where('removed', 0);
+        $this->db->select('tickets.*, projects.label as project_label');
+        $this->db->where('tickets.id', $id);
+        $this->db->where('tickets.user_id', $user_id);
+        $this->db->where('tickets.removed', 0);
         $this->db->from('tickets');
+        $this->db->join('projects', 'tickets.project_id = projects.id', 'left');
         $ticket = $this->db->get()->first_row();
         return $ticket;
     }
 
     public function get_by_user($user_id)
     {
-        $this->db->order_by('id', 'desc');
-        $this->db->where('removed', 0);
-        $this->db->where('user_id', $user_id);
+        $this->db->select('tickets.*, projects.label as project_label');
+        $this->db->order_by('tickets.id', 'desc');
+        $this->db->where('tickets.removed', 0);
+        $this->db->where('tickets.user_id', $user_id);
         $this->db->from('tickets');
+        $this->db->join('projects', 'tickets.project_id = projects.id', 'left');
         $tickets = $this->db->get()->result();
         return $tickets;
     }
@@ -38,7 +42,7 @@ class Ticket_model extends CI_Model
     public function update($id, $data)
     {
         $this->db->set($data);
-        $this->db->where('id', $id);
+        $this->db->where('tickets.id', $id);
         $this->db->update('tickets');
         return $this->db->affected_rows();
     }

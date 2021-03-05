@@ -9,16 +9,16 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Status</th>
+                    <th>Project</th>
                     <th>Created</th>
-                    <th>Updated</th>
                 </tr>
                 <?php foreach ($tickets as $ticket) : ?>
                     <tr>
                         <td><?php echo $ticket->id ?></td>
                         <td><a href="<?php echo base_url("ticket/view/{$ticket->id}") ?>"><?php echo $ticket->title ?></a></td>
                         <td><?php echo status_label($ticket->status) ?></td>
+                        <td><?php echo $ticket->project_label ?></td>
                         <td><?php echo $ticket->created ?></td>
-                        <td><?php echo $ticket->modified ?></td>
                     </tr>
                 <?php endforeach ?>
                 <?php if (empty($tickets)) : ?>
