@@ -9,7 +9,7 @@ img {
 }
 
 a {
-    color: blue;
+    color: #4C638F;
 }
 
 .form-control, .form-select {
@@ -41,4 +41,39 @@ h1 {
 
 .badge {
     font-size: inherit;
+}
+
+.bg-primary {
+    background-color: #4C638F!important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #4C638F;
+    border-color: #4C638F;
+}
+
+.bg-success {
+    background-color: #6793A3!important;
+}
+
+svg {
+    width: 30px;
+    display: block;
+}
+
+.btn-outline-primary {
+    color: #4C638F;
+    border-color: #4C638F;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #4C638F;
+    border-color: #4C638F;
+}
+@media (min-width: 992px) {
+    .container {
+        width: 800px;
+    }
 }

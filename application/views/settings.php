@@ -29,7 +29,5 @@
                     <input type="submit" value="Save" class="btn btn-primary">
                 </div>
             </form>
-        </div>
-    </div>
-</div>  
+  
 <?php $this->load->view('footer') ?>
