@@ -5,7 +5,7 @@ class Ticket_model extends CI_Model
 {
     public function is_status($status)
     {
-        $statuses = ['open', 'working', 'closed', 'canceled'];
+        $statuses = ['open', 'working', 'completed', 'canceled'];
         return in_array($status, $statuses);
     }
 
