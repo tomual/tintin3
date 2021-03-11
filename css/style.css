@@ -72,6 +72,11 @@ svg {
     background-color: #4C638F;
     border-color: #4C638F;
 }
+
+.bg-secondary {
+    background-color: #364874!important;
+}
+
 @media (min-width: 992px) {
     .container {
         width: 800px;

@@ -17,7 +17,7 @@
         <select class="form-select <?php echo is_valid('status') ?>" name="status" id="status">
             <option value="open" <?php echo set_select('status', 'open', $ticket->status == 'open') ?>>Open</option>
             <option value="working" <?php echo set_select('status', 'working', $ticket->status == 'working') ?>>Working</option>
-            <option value="closed" <?php echo set_select('status', 'closed', $ticket->status == 'closed') ?>>Closed</option>
+            <option value="complete" <?php echo set_select('status', 'complete', $ticket->status == 'complete') ?>>Complete</option>
             <option value="canceled" <?php echo set_select('status', 'canceled', $ticket->status == 'canceled') ?>>Canceled</option>
         </select>
         <?php echo form_error('status') ?>
@@ -33,7 +33,7 @@
         <?php echo form_error('project_id') ?>
     </div>
     <div class="mb-1">
-        <input type="submit" value="Edit" class="btn btn-primary">
+        <input type="submit" value="Update" class="btn btn-primary">
         <a href="<?php echo base_url("ticket/remove/{$ticket->id}") ?>" class="btn btn-outline-primary" onclick="return confirm('Are you sure you cant to delete this ticket?')">Delete</a>
     </div>
 </form>

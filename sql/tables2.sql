@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `project_id` int(11) DEFAULT NULL,
-  `status` enum('open','working','input','completed','canceled') DEFAULT NULL,
+  `status` enum('open','working','input','complete','canceled') DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `description` text DEFAULT NULL,
   `created` datetime DEFAULT NULL,

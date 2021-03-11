@@ -17,7 +17,7 @@
         <select class="form-select" name="status" id="status">
             <option value="open" <?php echo set_select('status', 'open') ?>>Open</option>
             <option value="working" <?php echo set_select('status', 'working') ?>>Working</option>
-            <option value="closed" <?php echo set_select('status', 'closed') ?>>Closed</option>
+            <option value="complete" <?php echo set_select('status', 'complete') ?>>Complete</option>
             <option value="canceled" <?php echo set_select('status', 'canceled') ?>>Canceled</option>
         </select>
         <?php echo form_error('status') ?>

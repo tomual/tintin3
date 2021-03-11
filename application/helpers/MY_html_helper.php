@@ -27,8 +27,8 @@ function status_label($status)
         return '<span class="badge bg-success">Open</span>';
     } elseif ($status == 'working') {
         return '<span class="badge bg-primary">Working</span>';
-    } elseif ($status == 'closed') {
-        return '<span class="badge bg-secondary">Closed</span>';
+    } elseif ($status == 'complete') {
+        return '<span class="badge bg-secondary">Complete</span>';
     } elseif ($status == 'canceled') {
         return '<span class="badge bg-danger">Canceled</span>';
     } else {
