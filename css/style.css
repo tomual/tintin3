@@ -79,6 +79,6 @@ svg {
 
 @media (min-width: 992px) {
     .container {
-        width: 800px;
+        width: 992px;
     }
 }
