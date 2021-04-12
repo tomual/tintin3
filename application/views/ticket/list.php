@@ -19,6 +19,9 @@
         </tr>
     <?php endforeach ?>
     <?php if (empty($tickets)) : ?>
+        <tr>
+            <td colspan="5" class="text-muted">There are no tickets</td>
+        </tr>
     <?php endif ?>
 </table>
 <?php $this->load->view('footer') ?>

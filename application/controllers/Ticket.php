@@ -137,4 +137,12 @@ class Ticket extends Authenticated_Controller
         }
         redirect('ticket/list');
     }
+
+    public function search()
+    {
+        $keywords = $this->input->get('keywords');
+        $tickets = $this->ticket_model->search($keywords);
+        set_title($keywords . " - Search");
+        $this->load->view('ticket/list', compact('tickets'));
+    }
 }

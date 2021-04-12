@@ -46,4 +46,19 @@ class Ticket_model extends CI_Model
         $this->db->update('tickets');
         return $this->db->affected_rows();
     }
+
+    public function search($string)
+    {
+        $this->db->select('tickets.*, projects.label as project_label');
+        $this->db->order_by('tickets.id', 'desc');
+        $this->db->where('tickets.removed', 0);
+        $this->db->group_start();
+        $this->db->or_like('tickets.title', $string);
+        $this->db->or_like('tickets.description', $string);
+        $this->db->group_end();
+        $this->db->from('tickets');
+        $this->db->join('projects', 'tickets.project_id = projects.id', 'left');
+        $tickets = $this->db->get()->result();
+        return $tickets;
+    }
 }

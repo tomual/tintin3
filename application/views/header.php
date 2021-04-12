@@ -34,9 +34,9 @@
                             <li class="d-inline-block me-2"><a href="<?php echo base_url('ticket/list') ?>">Tickets</a></li>
                             <li class="d-inline-block me-2"><a href="<?php echo base_url('project/list') ?>">Projects</a></li>
                         </ul>
-                        <form class="d-inline-block float-end">
+                        <form class="d-inline-block float-end" action="<?php echo base_url('ticket/search') ?>">
                             <div class="input-group mb-3">
-                                <input type="text" name="search" class="form-control">
+                                <input type="text" name="keywords" class="form-control">
                                 <input type="submit" value="Search" class="btn btn-primary">
                             </div>
                         </form>
