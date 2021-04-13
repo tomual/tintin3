@@ -61,4 +61,18 @@ class Ticket_model extends CI_Model
         $tickets = $this->db->get()->result();
         return $tickets;
     }
+
+    public function add_revision($before, $after)
+    {
+        foreach ($before as $key => $value) {
+            if (!empty($after->{$key}) && $before->{$key} != $after->{$key}) {
+                $data = array(
+                    'type' => $key,
+                    'before' => $before->{$key},
+                    'after' => $after->{$key} ?? null,
+                );
+                $this->db->insert('revisions', $data);
+            }
+        }
+    }
 }

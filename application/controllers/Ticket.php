@@ -105,6 +105,7 @@ class Ticket extends Authenticated_Controller
                     'modified_by' => $this->user->id,
                 );
                 if ($this->ticket_model->update($id, $data) !== false) {
+                    $this->ticket_model->add_revision($ticket, (object) $data);
                     $this->session->set_flashdata('success', 'Ticket has been updated.');
                     redirect("ticket/view/$id");
                 } else {
